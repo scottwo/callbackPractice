@@ -8,7 +8,7 @@ Below is a sample problem
    });
    
 
-and what you should write is the favNum function that makes the code above work, 
+and what you should write is the sayHi function that makes the code above work, 
     
     
    var sayHi = function(str, cb){
@@ -22,7 +22,9 @@ and what you should write is the favNum function that makes the code above work,
     
 */
 
-
+var first = function(arr, func) {
+    func(arr[0]);
+}
 
   //Code Here for first
   
@@ -35,7 +37,9 @@ first(names, function(firstName){
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
-
+var last = function(arr, func) {
+    func(arr[arr.length - 1]);
+}
 
 
   //Code Here for last
@@ -53,7 +57,9 @@ last(names, function(lastName){
 
 
 
-
+var multiply = function (num1, num2, func) {
+    func(num1 * num2);   
+}
 
 
   //Code Here for multiply
@@ -70,7 +76,13 @@ multiply(4, 3, function(answer){
 
 
 
-
+var contains = function(arr, name, func) {
+    if (arr.indexOf(name) !== 0) {
+        func(true);
+    } else {
+        func(false);   
+    }
+}
 
   //Code Here for contains
 
@@ -90,7 +102,15 @@ contains(names, 'Colt', function(result){
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
-
+var uniq = function(arr, func) {
+    var uniqArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr.indexOf(arr[i], i + 1) === -1 && arr.indexOf(arr[i]) === i) {
+            uniqArr.push(arr[i]);
+        }
+    }
+    func(uniqArr);
+}
 
     //Code Here for uniq
 
@@ -106,7 +126,11 @@ uniq(names, function(uniqArr){
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
-
+var each = function(arr, func) {
+    for (var i = 0; i < arr.length; i++) {
+        func(arr[i], i);   
+    }
+}
 
     //Code Here for each
 
@@ -122,7 +146,13 @@ each(names, function(item, indice){
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
-
+var getUserById = function (arr, id, func) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].id === id) {
+            func(arr[i]);   
+        }
+    }
+}
 
 
  //code here for getUserById
